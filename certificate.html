@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بڕوانامەی Golden Boudoir</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#071426,#0d2340,#163d68);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.certificate{
+    width:100%;
+    max-width:850px;
+    min-height:600px;
+    background:linear-gradient(145deg,#ffffff,#eef7ff);
+    color:#0b1d33;
+    border:5px solid #76c7ff;
+    border-radius:28px;
+    padding:35px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    overflow:hidden;
+}
+
+.certificate::before{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border:2px solid #b7e3ff;
+    border-radius:20px;
+    pointer-events:none;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+    margin:0 auto 10px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0b2340,#258bd1);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    position:relative;
+    z-index:2;
+}
+
+.small-title{
+    color:#287fbd;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:2px;
+    position:relative;
+    z-index:2;
+}
+
+h1{
+    font-size:32px;
+    margin:10px 0 5px;
+    color:#0b2340;
+    position:relative;
+    z-index:2;
+}
+
+.subtitle{
+    color:#557089;
+    font-size:16px;
+    margin-bottom:25px;
+    position:relative;
+    z-index:2;
+}
+
+.info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin:20px auto;
+    max-width:650px;
+    position:relative;
+    z-index:2;
+}
+
+.info-box{
+    background:#eaf6ff;
+    border:1px solid #b8e2ff;
+    border-radius:15px;
+    padding:13px;
+}
+
+.label{
+    color:#56809d;
+    font-size:13px;
+    margin-bottom:5px;
+}
+
+.value{
+    color:#0b2340;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.score{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin:20px 0;
+    position:relative;
+    z-index:2;
+}
+
+.score-box{
+    min-width:145px;
+    background:#0b2340;
+    color:white;
+    border-radius:15px;
+    padding:13px;
+}
+
+.score-box span{
+    display:block;
+    font-size:12px;
+    color:#b9e5ff;
+    margin-bottom:5px;
+}
+
+.score-box strong{
+    font-size:20px;
+}
+
+.message{
+    max-width:620px;
+    margin:20px auto;
+    background:#f3faff;
+    border-right:4px solid #49aeea;
+    border-radius:12px;
+    padding:15px;
+    line-height:1.9;
+    color:#29445c;
+    position:relative;
+    z-index:2;
+}
+
+.owner{
+    margin-top:22px;
+    color:#304c66;
+    line-height:1.8;
+    position:relative;
+    z-index:2;
+}
+
+.owner strong{
+    color:#0b2340;
+}
+
+.footer{
+    margin-top:20px;
+    font-size:13px;
+    color:#7190a7;
+    position:relative;
+    z-index:2;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:10px;
+    }
+
+    .certificate{
+        padding:25px 15px;
+        border-width:3px;
+    }
+
+    h1{
+        font-size:25px;
+    }
+
+    .subtitle{
+        font-size:14px;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    .score-box{
+        width:100%;
+    }
+
+    .message{
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="certificate">
+
+    <div class="logo">
+        GOLDEN<br>BOUDOIR
+    </div>
+
+    <div class="small-title">
+        GOLDEN BOUDOIR
+    </div>
+
+    <h1>🏆 بڕوانامەی سەرکەوتن 🏆</h1>
+
+    <div class="subtitle">
+        بڕوانامەی تاقیکردنەوەی زمانی کۆری 🇰🇷
+    </div>
+
+    <div class="info">
+
+        <div class="info-box">
+            <div class="label">ناو</div>
+            <div class="value" id="userName">لارا جاف</div>
+        </div>
+
+        <div class="info-box">
+            <div class="label">ئاست</div>
+            <div class="value" id="level">—</div>
+        </div>
+
+    </div>
+
+    <div class="score">
+
+        <div class="score-box">
+            <span>وەڵامی ڕاست</span>
+            <strong id="correct">0 / 130</strong>
+        </div>
+
+        <div class="score-box">
+            <span>وەڵامی هەڵە</span>
+            <strong id="wrong">0 / 130</strong>
+        </div>
+
+        <div class="score-box">
+            <span>نمرە</span>
+            <strong id="score">0 / 130</strong>
+        </div>
+
+    </div>
+
+    <div class="message">
+        <strong>پیرۆزبایی! 🎉</strong>
+        <br>
+        ئەم بڕوانامەیە بەهۆی بەشداری و تەواوکردنی
+        تاقیکردنەوەی زمانی کۆریی
+        <strong>Golden Boudoir</strong>
+        بە تۆ دەدرێت.
+        <br>
+        ئەنجامەکەت نیشانەی هەوڵ و پێشکەوتنتە.
+        <br>
+        <strong>بەردەوام بە و هەرگیز واز مەهێنە! 🇰🇷💙</strong>
+    </div>
+
+    <div class="owner">
+        لەلایەن
+        <br>
+        <strong>لارا جاف</strong>
+        <br>
+        ناسراو بە <strong>سیۆجین (Seojin)</strong>
+        <br>
+        خاوەنی <strong>Golden Boudoir</strong>
+    </div>
+
+    <div class="footer">
+        ✦ Golden Boudoir • Korean Language Test ✦
+    </div>
+
+</div>
+
+<script>
+
+const score =
+    Number(localStorage.getItem("koreanTestScore")) || 0;
+
+const correct =
+    Number(localStorage.getItem("koreanCorrect")) || score;
+
+const wrong =
+    Number(localStorage.getItem("koreanWrong")) || (130 - correct);
+
+const name =
+    localStorage.getItem("koreanTestName") || "ناوی بەشداربوو";
+
+
+let level = "";
+
+if(score >= 1 && score <= 26){
+
+    level = "🌱 پێویستت بە ڕاهێنانی زیاترە";
+
+}else if(score >= 27 && score <= 52){
+
+    level = "🌿 سەرەتایی";
+
+}else if(score >= 53 && score <= 78){
+
+    level = "🌸 مامناوەند";
+
+}else if(score >= 79 && score <= 104){
+
+    level = "🌷 پێشکەوتوو";
+
+}else if(score >= 105 && score <= 130){
+
+    level = "🏆 نایاب";
+
+}else{
+
+    level = "—";
+
+}
+
+
+document.getElementById("userName").textContent = name;
+
+document.getElementById("level").textContent = level;
+
+document.getElementById("correct").textContent =
+    correct + " / 130";
+
+document.getElementById("wrong").textContent =
+    wrong + " / 130";
+
+document.getElementById("score").textContent =
+    score + " / 130";
+
+</script>
+
+</body>
+</html>
